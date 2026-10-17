@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ランダム画像</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 24px;
+      background: #f5f5f5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      max-height: 75vh;
+      object-fit: contain;
+      margin: 24px auto;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>ランダム画像</h1>
+  <p>アクセスするたびに画像を抽選するよ！</p>
+
+  <img id="randomImage" alt="抽選された画像">
+  <button onclick="showRandomImage()">もう一度抽選</button>
+
+  <script>
+    const images = [
+      "images/001.jpg",
+      "images/002.jpg",
+      "images/003.jpg",
+      "images/004.jpg"
+    ];
+
+    function showRandomImage() {
+      const index = Math.floor(Math.random() * images.length);
+      const image = document.getElementById("randomImage");
+
+      image.src = images[index];
+      image.alt = "抽選された画像";
+    }
+
+    showRandomImage();
+  </script>
+</body>
+</html>
